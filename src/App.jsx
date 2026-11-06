@@ -1,8 +1,24 @@
+import { Route, Routes } from 'react-router-dom'
+import Header from './components/Header.jsx'
+import AboutPage from './pages/AboutPage.jsx'
+import NotFoundPage from './pages/NotFoundPage.jsx'
+import StatsPage from './pages/StatsPage.jsx'
+import TaskDetailPage from './pages/TaskDetailPage.jsx'
+import TasksPage from './pages/TasksPage.jsx'
+
 export default function App() {
   return (
-    <main className="min-h-screen bg-canvas p-8 text-ink">
-      <h1 className="text-3xl font-bold text-plum">TaskBoard</h1>
-      <p className="mt-2 text-slate-600">Your task manager is ready to build.</p>
-    </main>
+    <div className="min-h-screen bg-canvas">
+      <Header />
+      <main className="mx-auto max-w-6xl px-4 py-7 sm:px-6 sm:py-10">
+        <Routes>
+          <Route path="/" element={<TasksPage />} />
+          <Route path="/tasks/:id" element={<TaskDetailPage />} />
+          <Route path="/stats" element={<StatsPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
+    </div>
   )
 }
