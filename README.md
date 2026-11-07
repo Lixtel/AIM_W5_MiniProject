@@ -17,13 +17,17 @@ TanStack Query manages the server data. Queries use keys such as `['todos']`, `[
 
 ## Screenshots
 
-Add screenshots of the Tasks, Task Details, and Stats routes here after running the app. Save them in `screenshots/` and embed them with Markdown, for example:
+### Tasks
 
-```md
-![Tasks page](screenshots/tasks.png)
-![Task details page](screenshots/task-details.png)
-![Stats page](screenshots/stats.png)
-```
+![TaskBoard task list with search, status and user filters, and pagination](screenshots/tasks.png)
+
+### Task details
+
+![Task details showing the assigned user and source status](screenshots/task-details.png)
+
+### Stats
+
+![Task statistics and tasks by user chart](screenshots/stats.png)
 
 ## Setup
 
