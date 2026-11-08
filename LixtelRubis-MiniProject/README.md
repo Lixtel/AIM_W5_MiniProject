@@ -32,8 +32,8 @@ TanStack Query manages the server data. Queries use keys such as `['todos']`, `[
 ## Setup
 
 ```bash
-git clone <your-repository-url>
-cd <your-repository-folder>
+git clone https://github.com/Lixtel/AIM_W5_MiniProject.git
+cd LixtelRubis-MiniProject
 npm install
 npm run dev
 ```
