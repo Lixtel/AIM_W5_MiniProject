@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
 
+// One shared TanStack Query client keeps fetched data cached across route changes.
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -16,6 +17,7 @@ const queryClient = new QueryClient({
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    {/* These providers make query caching and React Router available to every page. */}
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <App />

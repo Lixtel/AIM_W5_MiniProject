@@ -1,5 +1,6 @@
 const API_URL = 'https://jsonplaceholder.typicode.com'
 
+// Shared fetch helper: throwing on HTTP errors lets TanStack Query expose isError.
 async function getJson(url) {
   const response = await fetch(url)
 

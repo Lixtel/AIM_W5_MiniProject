@@ -5,7 +5,10 @@ import ErrorMessage from '../components/ErrorMessage.jsx'
 import LoadingMessage from '../components/LoadingMessage.jsx'
 
 export default function TaskDetailPage() {
+  // React Router reads the dynamic :id parameter from /tasks/:id.
   const { id } = useParams()
+
+  // Including id in the key caches each task separately; the user query waits for its userId.
   const todoQuery = useQuery({ queryKey: ['todos', id], queryFn: () => getTodo(id) })
   const userId = todoQuery.data?.userId
   const userQuery = useQuery({
@@ -14,6 +17,7 @@ export default function TaskDetailPage() {
     enabled: Boolean(userId),
   })
 
+  // TanStack Query status plus the missing-item check cover loading, error, and not-found states.
   if (todoQuery.isPending) return <LoadingMessage message="Loading task..." />
   if (todoQuery.isError) return <ErrorMessage message={todoQuery.error.message} />
   if (!todoQuery.data?.id) return <ErrorMessage message="That task could not be found." />

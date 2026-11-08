@@ -12,6 +12,7 @@ export default function App() {
       <Header />
       <main className="mx-auto max-w-6xl px-4 py-7 sm:px-6 sm:py-10">
         <Routes>
+          {/* React Router maps each page and reads :id from the task detail URL. */}
           <Route path="/" element={<TasksPage />} />
           <Route path="/tasks/:id" element={<TaskDetailPage />} />
           <Route path="/stats" element={<StatsPage />} />

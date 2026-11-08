@@ -1,4 +1,5 @@
 export default function TaskFilters({ search, status, userId, users, onChange }) {
+  // Tailwind breakpoints stack filters on mobile and add columns on wider screens.
   return (
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       <label className="sr-only" htmlFor="task-search">Search tasks</label>

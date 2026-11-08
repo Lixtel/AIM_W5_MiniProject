@@ -8,13 +8,17 @@ import TaskFilters from '../components/TaskFilters.jsx'
 import TaskRow from '../components/TaskRow.jsx'
 
 export default function TasksPage() {
+  // Page-owned UI state: filters, paging, and temporary done marks only affect this list.
   const [filters, setFilters] = useState({ search: '', status: 'all', userId: 'all' })
   const [doneIds, setDoneIds] = useState([])
   const [page, setPage] = useState(1)
   const pageSize = 10
+
+  // TanStack Query owns API data and request states; query keys identify cached resources.
   const todosQuery = useQuery({ queryKey: ['todos'], queryFn: getTodos })
   const usersQuery = useQuery({ queryKey: ['users'], queryFn: getUsers })
 
+  // useMemo derives display data from the server response instead of duplicating it in state.
   const usersById = useMemo(
     () => Object.fromEntries((usersQuery.data ?? []).map((user) => [user.id, user.name])),
     [usersQuery.data],
@@ -47,11 +51,13 @@ export default function TasksPage() {
     setPage(1)
   }
 
+  // Query status drives the required loading and error UI; no manual fetch useEffect is needed.
   if (todosQuery.isPending || usersQuery.isPending) return <LoadingMessage message="Loading tasks..." />
   if (todosQuery.isError || usersQuery.isError) {
     return <ErrorMessage message={todosQuery.error?.message ?? usersQuery.error?.message} />
   }
 
+  // EmptyMessage is rendered when the current search and filters match no tasks.
   return (
     <div className="space-y-5">
       <div>

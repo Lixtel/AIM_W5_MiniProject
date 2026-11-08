@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+// Presentational row: task state stays in TasksPage and changes flow up through onToggle.
 export default function TaskRow({ task, userName, isDone, onToggle }) {
   return (
     <li className="flex flex-col gap-3 rounded-xl border border-lilac bg-white p-4 shadow-sm sm:flex-row sm:items-center">

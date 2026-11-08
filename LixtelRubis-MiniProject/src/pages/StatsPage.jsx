@@ -5,6 +5,7 @@ import LoadingMessage from '../components/LoadingMessage.jsx'
 import StatCard from '../components/StatCard.jsx'
 
 export default function StatsPage() {
+  // Reusing the ['todos'] and ['users'] keys lets this page share cached data with TasksPage.
   const todosQuery = useQuery({ queryKey: ['todos'], queryFn: getTodos })
   const usersQuery = useQuery({ queryKey: ['users'], queryFn: getUsers })
 
