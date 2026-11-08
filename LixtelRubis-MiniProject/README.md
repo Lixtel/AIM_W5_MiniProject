@@ -29,6 +29,10 @@ TanStack Query manages the server data. Queries use keys such as `['todos']`, `[
 
 ![Task statistics and tasks by user chart](screenshots/stats.png)
 
+### About
+
+![About page describing TaskBoard and its data source](screenshots/about.png)
+
 ## Setup
 
 ```bash
